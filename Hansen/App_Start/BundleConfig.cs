@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using System.Web.Optimization.React;
 
 namespace Hansen
 {
@@ -31,6 +32,10 @@ namespace Hansen
                 "~/Content/foundation.css",
                 "~/Content/styles/hansen.css"
             ));
+
+            bundles.Add(new BabelBundle("~/bunles/hansen").Include(
+                "~/Scripts/components/Map.jsx"
+                ));
         }
     }
 }
