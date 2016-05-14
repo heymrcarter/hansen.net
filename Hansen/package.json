@@ -4,7 +4,10 @@
   "description": "The website for A,L. Hansen Paint and Metal, Inc.",
   "main": "/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint Scripts/components",
+    "prebuild": "npm run lint",
+    "build": "./node_modules/.bin/babel-node Scripts/build/build.js"
   },
   "author": "Tom Carter",
   "license": "ISC",
