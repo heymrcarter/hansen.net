@@ -33,8 +33,14 @@ namespace Hansen
                 "~/Content/styles/hansen.css"
             ));
 
-            bundles.Add(new BabelBundle("~/bunles/hansen").Include(
-                "~/Scripts/components/Map.jsx"
+            bundles.Add(new ScriptBundle("~/bundles/lib").Include(
+                "~/node_modules/react/dist/react.js",
+                "~/node_modules/react-dom/dist/react-dom.js"
+                ));
+
+            bundles.Add(new BabelBundle("~/bundles/hansen").Include(
+                "~/Scripts/components/Map.jsx",
+                "~/Scripts/components/ContactForm.jsx"
                 ));
         }
     }

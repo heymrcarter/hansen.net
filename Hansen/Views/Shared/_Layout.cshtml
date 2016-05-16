@@ -10,17 +10,19 @@
 </head>
 <body>
     <header class="header">
-        <div class="left">
-            <a href="/"><img src="@Url.Content("~/Content/images/hansen-logo.png")" /></a>
-        </div>
+        <div class="row">
+            <div class="small-12 medium-6 columns">
+                <a href="/"><img src="@Url.Content("~/Content/images/hansen-logo.png")" /></a>
+            </div>
 
-        <div class="right">
-            <ul class="menu" data-magellan>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-            </ul>
+            <div class="small-12 medium-6 columns">
+                <ul class="menu" data-magellan>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -34,8 +36,18 @@
         </footer>
     </main>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIWzg1-zeZbVg65VaFDZa2AV0mqz_MkZs"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/foundation")
+    @Scripts.Render("~/bundles/lib")
+    @Scripts.Render("~/bundles/hansen")
+
+    <script>
+        $(function () {
+            $(document).foundation();
+        });
+    </script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

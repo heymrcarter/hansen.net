@@ -1,26 +1,33 @@
-﻿var react = require('react');
-var ReactDOM = require('react-dom');
-google = google || window.google;
-
-var GoogleMap = react.createClass({
+﻿var GoogleMap = React.createClass({
     propTypes: {
-        address: React.PropTypes.string.isRequired,
+        address: React.PropTypes.string,
         id: React.PropTypes.string.isRequired,
-        zoom: React.PropTypes.number.isRequired
+        zoom: React.PropTypes.number.isRequired,
+        coordinates: React.PropTypes.object
     },
 
     componentDidMount: function () {
         var GMap = google.maps.Map;
-        var MapEvents = google.maps.MapEvents;
-
-        MapEvents.addDomListener(window, 'load', function () {
-            this.geocodeAddress(this.props.address, function (latlng) {
-                new GMap(document.getElementById(this.props.id), {
-                    zoom: this.props.zoom,
+        var props = this.props;
+        
+        if (props.address) {
+            this.geocodeAddress(props.address, function (latlng) {
+                new GMap(document.getElementById(props.id), {
+                    zoom: props.zoom,
                     center: latlng
                 });
             });
-        });
+        }
+
+        if (props.coordinates) {
+            var latlng = new google.maps.LatLng(props.coordinates.Lat, props.coordinates.Lng);
+
+            new GMap(document.getElementById(props.id), {
+                zoom: props.zoom,
+                center: latlng
+            });
+        }
+        
     },
 
     render: function () {
@@ -30,22 +37,21 @@ var GoogleMap = react.createClass({
     },
 
     geocodeAddress: function (address, callback) {
-        var geocoder = new google.maps.geocoder();
+        var geocoder = new google.maps.Geocoder();
         var requestObj = { address: address };
         var statusTypes = google.maps.GeocoderStatus;
 
         geocoder.geocode(requestObj, function (results, status) {
             var result = results[0];
 
-            if (status === statusTypes.ERROR) {
-                callback(new Error('Geocoder error: ' + result));
-            }
-
-            callback(result.geometry.location);
+            if (status === statusTypes.OK) {
+                console.log(result.geometry.location.toJSON());
+                callback(result.geometry.location);
+            } else {
+                callback(new Error('Geocoder error: ' + status));
+            }            
         });
     }
 });
 
-module.exports = GoogleMap;
-
-ReactDOM.render(<GoogleMap address='2612 W Chestnut St. Louisville, KY 40211' id='map' zoom={18} />, document.getElementById('hansen-map'));
+ReactDOM.render(<GoogleMap coordinates={{Lat: 38.252526, Lng: -85.795454}} id='map' zoom={18} />, document.getElementById('hansen-map'));

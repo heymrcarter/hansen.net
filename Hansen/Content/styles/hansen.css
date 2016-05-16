@@ -4,9 +4,35 @@
     margin-bottom: 25px;
 }
 
+.sticky { background-color: #010067; }
+
+.header .menu {
+    position: relative;
+    top: 10px;
+}
+
+.header .menu a {
+    color: #eee;
+    text-shadow: 2px 2px 0 #000;
+}
+.header .menu a:hover,
+.header .menu a:focus { color: #2199e8; }
+
 .footer { margin-top: 50px; }
 
 .content-section { position: relative; }
+
+.services {
+    margin-bottom: 75px;
+}
+
+.services-heading {
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    background-color: rgba(1, 0, 103, .30);
+    padding: 0 15px;
+    float:left;
+}
 
 .content-overlay {
     width: 100%;
@@ -53,7 +79,9 @@
 .button, button { background-color: #010067; }
 
 .button:hover, .button:focus,
-button:hover, button:focus { background-color: #010067; }
+button:hover, button:focus {
+    background-color: #010067;
+}
 
 .m0        { margin: 0px; }
 .m0-top    { margin-top: 0px; }
