@@ -21,7 +21,10 @@ namespace Hansen
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
-                "~/Scripts/foundation.js"
+                "~/Scripts/foundation/foundation.js",
+                "~/Scripts/foundation/foundation.clearing.js",
+                "~/Scripts/foundation/foundation.equalizer.js",
+                "~/Scripts/foundation/foundation.magellan.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -29,7 +32,8 @@ namespace Hansen
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                "~/Content/foundation.css",
+                "~/Content/foundation/normalize.css",
+                "~/Content/foundation/foundation.css",
                 "~/Content/styles/hansen.css"
             ));
 
