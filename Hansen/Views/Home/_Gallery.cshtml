@@ -1,0 +1,19 @@
+﻿@using Hansen.Models
+@model IEnumerable<GalleryImage>
+
+<section id="gallery" class="content-section row m3-top" data-magellan-target="gallery">
+    <div class="small-12 columns">
+        <h2>Gallery</h2>
+    </div>
+
+    <div class="small-12 columns">
+        <div id="hansen-gallery">
+            <ul class="clearing-thumbs" data-clearing>
+                @foreach (var img in Model)
+                {
+                    <li><a href="@Url.Content(img.Full)"><img src="@Url.Content(img.Thumbnail)" alt="" /></a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,5 @@
-﻿using Hansen.Models;
+﻿using Hansen.Helpers;
+using Hansen.Models;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -28,7 +29,9 @@ namespace Hansen.Controllers
         [HttpPost]
         public void Index(Inquiry inquiry)
         {
-            if (ModelState.IsValid)
+            var shouldSendMail = ConfigHelper.GetSetting<bool>("MailgunDebugMode");
+
+            if (ModelState.IsValid && shouldSendMail)
             {
                 SendConfirmation(inquiry);
                 SendInquiryAlert(inquiry);

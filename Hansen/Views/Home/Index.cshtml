@@ -1,6 +1,5 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@using Hansen.Models
+@model IEnumerable<GalleryImage>
 
 <section class="content" id="content">
     @Html.Partial("_About")
@@ -8,4 +7,6 @@
     @Html.Partial("_Services")
 
     @Html.Partial("_Contact")
+
+    @Html.Partial("_Gallery", Model)
 </section>

@@ -204,11 +204,11 @@ var ContactForm = React.createClass({
 
         var modelState = this.validateData(data);
 
-        if (!modelState.error) {
-            console.log('POST: ' + data);
-            //$.post($form.attr('action'), data, function (data) {
-            //    console.log(data);
-            //});
+        if (!modelState.error) {            
+            $.post($form.attr('action'), data, function (data) {
+                console.log('POST successfully submitted');
+            });
+
             ReactDOM.render(<Alert type='success' heading='Message received!' id='inquiry-alert'>We've received your inquiry about your {data.VehicleYear} {data.VehicleMake} {data.VehicleModel} and will be in touch soon!</Alert>, document.getElementById('form-container'));
         } else {
             var alert = {
