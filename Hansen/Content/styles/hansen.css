@@ -54,7 +54,7 @@
     .content-overlay::after {
         content: '';
         min-height: 600px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('../images/services-wide.jpg');
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('/Content/images/services-wide.jpg');
         background-repeat: no-repeat;
         opacity: 1;
         top: 0;
