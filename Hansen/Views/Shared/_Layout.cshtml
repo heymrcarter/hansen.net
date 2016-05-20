@@ -12,7 +12,7 @@
     <header class="header">
         <div class="row">
             <a href="/" class="left"><img src="@Url.Content("~/Content/images/hansen-logo.png")" /></a>
-            
+
             <div class="magellan-container right" data-magellan-expedition="fixed">
                 <div class="row">
                     <dl class="sub-nav">
@@ -28,7 +28,7 @@
 
     <main>
         @RenderBody()
-        
+
         <footer class="footer">
             <div class="row">
                 <p class="legal">&copy; @DateTime.Now.Year A.L. Hansen Paint and Metal, Inc. All Rights Reserved</p>
@@ -39,7 +39,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIWzg1-zeZbVg65VaFDZa2AV0mqz_MkZs"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/foundation")
-    @Scripts.Render("~/bundles/lib")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.min.js"></script>
     @Scripts.Render("~/bundles/hansen")
 
     <script>
