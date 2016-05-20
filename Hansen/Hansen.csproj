@@ -45,6 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ClearScript, Version=5.4.5.0, Culture=neutral, PublicKeyToken=935d0c957da47c73, processorArchitecture=MSIL">
       <HintPath>..\packages\JavaScriptEngineSwitcher.V8.1.5.2\lib\net40\ClearScript.dll</HintPath>
       <Private>True</Private>
@@ -197,7 +205,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Bundles\Foundation.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -206,18 +216,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ConfigHelper.cs" />
+    <Compile Include="Helpers\GalleryHelper.cs" />
+    <Compile Include="Helpers\IGalleryHelper.cs" />
+    <Compile Include="Models\GalleryImage.cs" />
     <Compile Include="Models\Inquiry.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\foundation-flex.css" />
-    <Content Include="Content\foundation-flex.min.css" />
-    <Content Include="Content\foundation-rtl.css" />
-    <Content Include="Content\foundation-rtl.min.css" />
-    <Content Include="Content\foundation.css" />
-    <Content Include="Content\foundation.min.css" />
+    <Content Include="Content\foundation\foundation.css" />
+    <Content Include="Content\foundation\foundation.mvc.css" />
+    <Content Include="Content\foundation\normalize.css" />
+    <Content Include="Content\images\52-hansen-truck.jpg" />
     <Content Include="Content\images\hansen-logo.png" />
+    <Content Include="Content\images\hansen-sign.jpg" />
     <Content Include="Content\images\services-large.jpg" />
     <Content Include="Content\images\services-medium.jpg" />
     <Content Include="favicon.ico" />
@@ -235,12 +248,31 @@
     <Content Include=".eslintrc" />
     <Content Include="Scripts\components\Map.jsx" />
     <Content Include="Scripts\components\ContactForm.jsx" />
+    <Content Include="Scripts\components\Gallery.jsx" />
+    <Content Include="App_Readme\Foundation for sites\readme.md" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrapper.js" />
     <Content Include="Scripts\build\build.js" />
     <Content Include="Scripts\config\webpack.prod.js" />
-    <Content Include="Scripts\foundation.js" />
-    <Content Include="Scripts\foundation.min.js" />
+    <Content Include="Scripts\foundation\fastclick.js" />
+    <Content Include="Scripts\foundation\foundation.abide.js" />
+    <Content Include="Scripts\foundation\foundation.accordion.js" />
+    <Content Include="Scripts\foundation\foundation.alert.js" />
+    <Content Include="Scripts\foundation\foundation.clearing.js" />
+    <Content Include="Scripts\foundation\foundation.dropdown.js" />
+    <Content Include="Scripts\foundation\foundation.equalizer.js" />
+    <Content Include="Scripts\foundation\foundation.interchange.js" />
+    <Content Include="Scripts\foundation\foundation.joyride.js" />
+    <Content Include="Scripts\foundation\foundation.js" />
+    <Content Include="Scripts\foundation\foundation.magellan.js" />
+    <Content Include="Scripts\foundation\foundation.offcanvas.js" />
+    <Content Include="Scripts\foundation\foundation.orbit.js" />
+    <Content Include="Scripts\foundation\foundation.reveal.js" />
+    <Content Include="Scripts\foundation\foundation.slider.js" />
+    <Content Include="Scripts\foundation\foundation.tab.js" />
+    <Content Include="Scripts\foundation\foundation.tooltip.js" />
+    <Content Include="Scripts\foundation\foundation.topbar.js" />
+    <Content Include="Scripts\foundation\jquery.cookie.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
@@ -250,34 +282,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\plugins\foundation.abide.js" />
-    <Content Include="Scripts\plugins\foundation.accordion.js" />
-    <Content Include="Scripts\plugins\foundation.accordionMenu.js" />
-    <Content Include="Scripts\plugins\foundation.core.js" />
-    <Content Include="Scripts\plugins\foundation.drilldown.js" />
-    <Content Include="Scripts\plugins\foundation.dropdown.js" />
-    <Content Include="Scripts\plugins\foundation.dropdownMenu.js" />
-    <Content Include="Scripts\plugins\foundation.equalizer.js" />
-    <Content Include="Scripts\plugins\foundation.interchange.js" />
-    <Content Include="Scripts\plugins\foundation.magellan.js" />
-    <Content Include="Scripts\plugins\foundation.offcanvas.js" />
-    <Content Include="Scripts\plugins\foundation.orbit.js" />
-    <Content Include="Scripts\plugins\foundation.responsiveMenu.js" />
-    <Content Include="Scripts\plugins\foundation.responsiveToggle.js" />
-    <Content Include="Scripts\plugins\foundation.reveal.js" />
-    <Content Include="Scripts\plugins\foundation.slider.js" />
-    <Content Include="Scripts\plugins\foundation.sticky.js" />
-    <Content Include="Scripts\plugins\foundation.tabs.js" />
-    <Content Include="Scripts\plugins\foundation.toggler.js" />
-    <Content Include="Scripts\plugins\foundation.tooltip.js" />
-    <Content Include="Scripts\plugins\foundation.util.box.js" />
-    <Content Include="Scripts\plugins\foundation.util.keyboard.js" />
-    <Content Include="Scripts\plugins\foundation.util.mediaQuery.js" />
-    <Content Include="Scripts\plugins\foundation.util.motion.js" />
-    <Content Include="Scripts\plugins\foundation.util.nest.js" />
-    <Content Include="Scripts\plugins\foundation.util.timerAndImageLoader.js" />
-    <Content Include="Scripts\plugins\foundation.util.touch.js" />
-    <Content Include="Scripts\plugins\foundation.util.triggers.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -298,6 +302,7 @@
     <Content Include="Views\Home\_About.cshtml" />
     <Content Include="Views\Home\_Services.cshtml" />
     <Content Include="Views\Home\_Contact.cshtml" />
+    <Content Include="Views\Home\_Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
