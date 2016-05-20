@@ -211,7 +211,6 @@
     <Content Include="package.json" />
     <Content Include="Scripts\components\Map.jsx" />
     <Content Include="Scripts\components\ContactForm.jsx" />
-    <Content Include="App_Readme\Foundation for sites\readme.md" />
     <None Include="Properties\PublishProfiles\hansen-preview - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\build\build.js" />
