@@ -207,7 +207,6 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\Bundles\Foundation.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\ReactConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -248,12 +247,10 @@
     <Content Include=".eslintrc" />
     <Content Include="Scripts\components\Map.jsx" />
     <Content Include="Scripts\components\ContactForm.jsx" />
-    <Content Include="Scripts\components\Gallery.jsx" />
     <Content Include="App_Readme\Foundation for sites\readme.md" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrapper.js" />
     <Content Include="Scripts\build\build.js" />
-    <Content Include="Scripts\config\webpack.prod.js" />
     <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
     <Content Include="Scripts\foundation\foundation.accordion.js" />
@@ -284,7 +281,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
