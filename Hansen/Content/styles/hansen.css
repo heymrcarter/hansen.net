@@ -103,6 +103,8 @@
 	top: 5px;
 }
 
+.magellan-container .sub-nav dd { margin-left: 0; }
+
 .magellan-container .sub-nav dt a, .sub-nav dd a {
     color: #eee;
     font-weight: bold;
