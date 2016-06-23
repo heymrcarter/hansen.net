@@ -318,7 +318,6 @@
     <Content Include="Scripts\components\ContactForm.jsx" />
     <None Include="Properties\PublishProfiles\hansen-preview - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\build\build.js" />
     <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
     <Content Include="Scripts\foundation\foundation.accordion.js" />
