@@ -29,7 +29,7 @@ namespace Hansen.Controllers
         [HttpPost]
         public void Index(Inquiry inquiry)
         {
-            var shouldSendMail = ConfigHelper.GetSetting<bool>("MailgunDebugMode");
+            var shouldSendMail = !ConfigHelper.GetSetting<bool>("MailgunDebugMode");
 
             if (ModelState.IsValid && shouldSendMail)
             {
